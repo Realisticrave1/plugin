@@ -1,0 +1,58 @@
+name: RavenRPG
+version: '1.0-SNAPSHOT'
+main: RavenMC.ravenRPG.RavenRPG
+api-version: '1.20'
+prefix: RavensRPG
+depend: [Vault]
+softdepend: [Essentials, LuckPerms, PlaceholderAPI]
+
+commands:
+  raven:
+    description: Manage your raven companion
+    usage: /<command> [summon|dismiss|info|ability|color|type|list|help]
+    aliases: [rvn]
+    permission: ravenrpg.raven
+
+  race:
+    description: Manage your character race
+    usage: /<command> [info|select|list|ability|abilities|help]
+    aliases: [rac]
+    permission: ravenrpg.race
+
+  skill:
+    description: View your skills and progression
+    usage: /<command> [info|list|help]
+    aliases: [sk]
+    permission: ravenrpg.skill
+
+  rpg:
+    description: General RPG commands
+    usage: /<command> [info|status|pay|balance|admin|help]
+    aliases: [r]
+    permission: ravenrpg.rpg
+
+permissions:
+  ravenrpg.raven:
+    description: Allows access to raven commands
+    default: true
+
+  ravenrpg.race:
+    description: Allows access to race commands
+    default: true
+
+  ravenrpg.skill:
+    description: Allows access to skill commands
+    default: true
+
+  ravenrpg.rpg:
+    description: Allows access to general RPG commands
+    default: true
+
+  ravenrpg.admin:
+    description: Allows access to admin commands
+    default: op
+    children:
+      ravenrpg.raven: true
+      ravenrpg.race: true
+      ravenrpg.skill: true
+      ravenrpg.rpg: true

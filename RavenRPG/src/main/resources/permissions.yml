@@ -1,0 +1,6 @@
+# Default permissions configuration
+permissions:
+  ravenrpg.default:
+    default: true
+  ravenrpg.admin:
+    default: op
