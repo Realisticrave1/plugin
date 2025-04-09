@@ -1,0 +1,260 @@
+# RavenRPG Configuration
+# Version 1.0.0
+
+# Economy Settings
+economy:
+  # Starting balance for new players
+  startingBalance: 100.0
+
+  # Currency names
+  currencySingular: "Coin"
+  currencyPlural: "Coins"
+
+# Raven Settings
+ravens:
+  # Raven types and their properties
+  types:
+    default:
+      name: "Common Raven"
+      description: "A basic raven companion with no special abilities."
+      abilities: []
+
+    scout:
+      name: "Scout Raven"
+      description: "A vigilant raven that helps detect nearby entities."
+      abilities:
+        - "Detect nearby players and monsters"
+        - "See further in darkness"
+
+    guardian:
+      name: "Guardian Raven"
+      description: "A protective raven that helps defend its master."
+      abilities:
+        - "Grant temporary damage resistance"
+        - "Warn of incoming danger"
+
+    hunter:
+      name: "Hunter Raven"
+      description: "A swift raven that aids in hunting and gathering."
+      abilities:
+        - "Increase movement speed"
+        - "Highlight nearby animals"
+
+    arcane:
+      name: "Arcane Raven"
+      description: "A magical raven attuned to mystical energies."
+      abilities:
+        - "Increase mana regeneration"
+        - "Reduce spell costs"
+
+# RPG Settings
+rpg:
+  # Race definitions
+  races:
+    human:
+      name: "Human"
+      description: "Versatile and adaptable, humans excel at many skills."
+      baseMana: 100
+      manaRegen: 5
+      abilities:
+        adaptability:
+          name: "Adaptability"
+          description: "Adapt to gain resistance to current environment"
+          manaCost: 20
+          cooldown: 180
+        versatility:
+          name: "Versatility"
+          description: "Gain a random positive effect"
+          manaCost: 25
+          cooldown: 300
+
+    elf:
+      name: "Elf"
+      description: "Graceful and attuned to nature, elves have enhanced agility and magical affinity."
+      baseMana: 120
+      manaRegen: 7
+      abilities:
+        nature_bond:
+          name: "Nature Bond"
+          description: "Heal self and nearby plants"
+          manaCost: 15
+          cooldown: 120
+        swift_step:
+          name: "Swift Step"
+          description: "Gain temporary speed boost"
+          manaCost: 10
+          cooldown: 60
+
+    orc:
+      name: "Orc"
+      description: "Strong and resilient, orcs are natural warriors with enhanced strength."
+      baseMana: 80
+      manaRegen: 4
+      abilities:
+        battle_cry:
+          name: "Battle Cry"
+          description: "Gain strength and frighten nearby enemies"
+          manaCost: 25
+          cooldown: 240
+        thick_skin:
+          name: "Thick Skin"
+          description: "Gain temporary damage resistance"
+          manaCost: 20
+          cooldown: 180
+
+    vampire:
+      name: "Vampire"
+      description: "Immortal beings of the night with enhanced strength and weaknesses to sunlight."
+      baseMana: 90
+      manaRegen: 6
+      abilities:
+        blood_drain:
+          name: "Blood Drain"
+          description: "Steal health from nearby entities"
+          manaCost: 30
+          cooldown: 300
+        night_vision:
+          name: "Night Vision"
+          description: "See in the dark"
+          manaCost: 5
+          cooldown: 60
+
+    dwarf:
+      name: "Dwarf"
+      description: "Hardy mountain folk with natural mining and crafting aptitude."
+      baseMana: 90
+      manaRegen: 5
+      abilities:
+        stone_skin:
+          name: "Stone Skin"
+          description: "Gain significant damage resistance"
+          manaCost: 30
+          cooldown: 300
+        miners_sight:
+          name: "Miner's Sight"
+          description: "Detect nearby ores"
+          manaCost: 15
+          cooldown: 120
+
+  # Skill definitions
+  skills:
+    mining:
+      name: "Mining"
+      description: "Increases mining speed and yields"
+      rewards:
+        5:
+          type: "effect"
+          effect: "FAST_DIGGING:1:600"
+          description: "Gain Haste I for 30 seconds when mining"
+        10:
+          type: "effect"
+          effect: "FAST_DIGGING:2:600"
+          description: "Gain Haste II for 30 seconds when mining"
+        15:
+          type: "drop_chance"
+          effect: "DIAMOND:0.05"
+          description: "5% chance for extra diamonds"
+        20:
+          type: "drop_chance"
+          effect: "DIAMOND:0.1"
+          description: "10% chance for extra diamonds"
+
+    combat:
+      name: "Combat"
+      description: "Increases damage dealt and grants combat abilities"
+      rewards:
+        5:
+          type: "damage_bonus"
+          effect: "0.1"
+          description: "+10% damage with weapons"
+        10:
+          type: "damage_bonus"
+          effect: "0.2"
+          description: "+20% damage with weapons"
+        15:
+          type: "effect"
+          effect: "INCREASE_DAMAGE:0:200"
+          description: "Gain Strength I for 10 seconds on kill"
+        20:
+          type: "damage_bonus"
+          effect: "0.3"
+          description: "+30% damage with weapons"
+
+    fishing:
+      name: "Fishing"
+      description: "Improves fishing speed and rare catches"
+      rewards:
+        5:
+          type: "catch_speed"
+          effect: "0.1"
+          description: "10% faster catching"
+        10:
+          type: "special_catch"
+          effect: "TROPICAL_FISH:0.05"
+          description: "5% chance for tropical fish"
+        15:
+          type: "special_catch"
+          effect: "NAUTILUS_SHELL:0.02"
+          description: "2% chance for nautilus shells"
+        20:
+          type: "special_catch"
+          effect: "TRIDENT:0.01"
+          description: "1% chance for tridents"
+
+    crafting:
+      name: "Crafting"
+      description: "Improves crafting efficiency and results"
+      rewards:
+        5:
+          type: "extra_item"
+          effect: "0.05"
+          description: "5% chance for extra crafted item"
+        10:
+          type: "material_save"
+          effect: "0.1"
+          description: "10% chance to not consume materials"
+        15:
+          type: "extra_item"
+          effect: "0.1"
+          description: "10% chance for extra crafted item"
+        20:
+          type: "special_craft"
+          effect: "ENCHANTED"
+          description: "Chance for pre-enchanted tools"
+
+    magic:
+      name: "Magic"
+      description: "Increases magical power and mana pool"
+      rewards:
+        5:
+          type: "max_mana"
+          effect: "10"
+          description: "+10 maximum mana"
+        10:
+          type: "mana_regen"
+          effect: "1"
+          description: "+1 mana regeneration"
+        15:
+          type: "spell_power"
+          effect: "0.1"
+          description: "+10% spell power"
+        20:
+          type: "max_mana"
+          effect: "20"
+          description: "+20 maximum mana"
+
+# Database Settings (MySQL support can be added later)
+database:
+  type: "yaml"  # Options: yaml, mysql
+
+# Visual Settings
+visuals:
+  # Nametag settings
+  nametag:
+    # Race colors in chat and nametags
+    raceColors:
+      human: "GREEN"
+      elf: "AQUA"
+      orc: "RED"
+      vampire: "DARK_PURPLE"
+      dwarf: "GOLD"
